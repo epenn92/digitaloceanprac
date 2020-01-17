@@ -16,7 +16,9 @@ const app = express()
  * import routers from controllers/
  *
  */
-const { templateRouter } = require('./controllers/template.js')
+const { championRouter } = require('./controllers/champion.js')
+const { itemRouter } = require('./controllers/item.js')
+const { resultRouter } = require('./controllers/result.js')
 
 
 /* Step 3
@@ -27,7 +29,7 @@ const { templateRouter } = require('./controllers/template.js')
 /* Step 3.a
  * ...to parse the body of the HTTP requests from a URL encoded string 
  */
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
 /* Step 3.b 
  *
@@ -49,7 +51,9 @@ app.use(express.static(`${__dirname}/client/build`))
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/api/helloworld', templateRouter)
+app.use('/champion', championRouter)
+app.use('/item', itemRouter)
+app.use('/result', resultRouter)
 
 /* Step 5
  *
