@@ -9,21 +9,23 @@ import ChampionItems from './components/ChampionItems.jsx'
 import ChampionResults from './components/ChampionResults.jsx'
 import AllResults from './components/AllResults.jsx'
 import AllItems from './components/AllItems.jsx'
+import UpdateChampion from './components/UpdateChampion.jsx'
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App" >
+        <div className="App">
           <Switch>
-            <Route exact path="/homepage" Component={Homepage} />
-            <Route path="/champion" Component={Champion} />
-            <Route exact path="/champion/:championId" Component={SingleChampion} />
-            <Route path="/champion/new" Component={NewChampion} />
-            <Route path="/champion/items/:championId" Component={ChampionItems} />
-            <Route path="/champion/results/:championId" Component={ChampionResults} />
-            <Route path="/results" Component={AllResults} />
-            <Route path="/items" Component={AllItems} />
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/champion" component={Champion} />
+            <Route exact path="/champion/new" component={NewChampion} />
+            <Route exact path="/champion/update" component={UpdateChampion} />
+            <Route exact path="/champion/:championId" component={SingleChampion} />
+            <Route exact path="/champion/items/:championId" component={ChampionItems} />
+            <Route exact path="/champion/results/:championId" component={ChampionResults} />
+            <Route path="/results" component={AllResults} />
+            <Route path="/items" component={AllItems} />
 
 
           </Switch>
