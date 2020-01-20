@@ -13,6 +13,16 @@ export default class NewChampion extends Component {
             damageType: '',
             ad: 0,
             ap: 0
+        },
+        items: [], 
+        newItem: {
+            name: '',
+            description: '',
+            isMelee: false,
+            damageType: '',
+            ad: 0,
+            ap: 0,
+            unique: false
         }
     }
 
@@ -20,6 +30,10 @@ export default class NewChampion extends Component {
         axios.get('/champion/')
             .then((res) => {
                 this.setState({ champions: res.data})
+            })
+        axios.get('/')
+            .then((res) => {
+                this.setState({ items: res.data})
             })
     }
 

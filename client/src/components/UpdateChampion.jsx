@@ -36,8 +36,8 @@ export default class UpdateChampion extends Component {
 
     onSubmitUpdateForm = (event) => {
         event.preventDefault()
-        axios.put(`/champion/${this.props.match.params.championId}`, this.state.newChampion)
-            .then((res) => {
+        axios.put(`/champion/edit/${this.props.match.params.championId}`, this.state.newChampion)
+            .then(() => {
                 this.setState({ redirect: true})
             })
     }
