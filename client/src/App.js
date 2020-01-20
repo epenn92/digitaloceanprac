@@ -12,6 +12,7 @@ import AllItems from './components/AllItems.jsx'
 import UpdateChampion from './components/UpdateChampion.jsx'
 import NewItem from './components/NewItem.jsx'
 import UpdateItem from './components/UpdateItem.jsx'
+import SingleItem from './components/SingleItem.jsx'
 
 class App extends Component {
   render() {
@@ -27,9 +28,10 @@ class App extends Component {
             <Route exact path="/champion/items/:championId" component={ChampionItems} />
             <Route exact path="/champion/results/:championId" component={ChampionResults} />
             <Route path="/results" component={AllResults} />
-            <Route path="/items" component={AllItems} />
-            <Route path="/items/new" component={NewItem} />
-            <Route path="/items/edit" component={UpdateItem} />
+            <Route path="/item" component={AllItems} />
+            <Route path="/item/new" component={NewItem} />
+            <Route path="/item/edit" component={UpdateItem} />
+            <Route path="/item/:itemId" component={SingleItem} />
 
 
           </Switch>
