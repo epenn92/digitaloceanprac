@@ -16,7 +16,7 @@ export default class Homepage extends Component {
                <Link to="/champion/new"><button>Create a Champion!</button></Link>
                </div>
                <div>
-               <Link to="/results"><button>View All Results</button></Link>
+               <Link to="/build"><button>View All Builds</button></Link>
                </div>
                <div>
                <Link to="/champion"><button>View All Champions</button></Link>

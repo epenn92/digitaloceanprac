@@ -2,49 +2,49 @@
 const express = require('express')
 
 
-const resultApi = require('../models/result.js')
+const buildApi = require('../models/build.js')
 const championApi = require('../models/champion.js')
 
-const resultRouter = express.Router()
+const buildRouter = express.Router()
 
 
-resultRouter.get('/', (req, res) => {
-    resultApi.getAllResults()
-        .then((results) => {
-            res.json(results)
+buildRouter.get('/', (req, res) => {
+    buildApi.getAllBuilds()
+        .then((builds) => {
+            res.json(builds)
         })
 })
 
 
 
-resultRouter.post('/', (req, res) => {
-    resultApi.addNewResult(req.body)
-        .then((result) => {
-            res.json({ result })
+buildRouter.post('/new', (req, res) => {
+    buildApi.addNewBuild(req.body)
+        .then((build) => {
+            res.json({ build })
         })
 })
 
-resultRouter.get('/:championId', (req, res) => {
-    resultApi.getResultsByChampionId(req.params.championId)
-        .then((result) => {
-            res.json(result)
+buildRouter.get('/:championId', (req, res) => {
+    buildApi.getBuildsByChampionId(req.params.championId)
+        .then((build) => {
+            res.json(build)
         })
 })
-resultRouter.get('/:resultId', (req, res) => {
-    resultApi.getResult(req.params.resultId)
-        .then((result) => {
-            res.json(result)
+buildRouter.get('/:buildId', (req, res) => {
+    buildApi.getBuild(req.params.buildId)
+        .then((build) => {
+            res.json(build)
         })
 })
-resultRouter.put('/:resultId', (req, res) => {
-    resultApi.updateResult(req.params.resultId, req.body)
+buildRouter.put('/:buildId', (req, res) => {
+    buildApi.updateBuild(req.params.buildId, req.body)
         .then(() => {
             res.json({})
         })
 })
 
-resultRouter.delete('/:resultId', (req, res) => {
-    resultApi.deleteResult(req.params.resultId)
+buildRouter.delete('/:buildId', (req, res) => {
+    buildApi.deleteBuild(req.params.buildId)
         .then(() => {
             res.json({})
         })
@@ -52,5 +52,5 @@ resultRouter.delete('/:resultId', (req, res) => {
 
 
 module.exports = {
-    resultRouter
+    buildRouter
 }

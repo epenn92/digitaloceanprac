@@ -6,7 +6,7 @@ import Champion from './components/Champion.jsx'
 import SingleChampion from './components/SingleChampion.jsx'
 import NewChampion from './components/NewChampion.jsx'
 import BuildPage from './components/BuildPage.jsx'
-import AllResults from './components/AllResults.jsx'
+import AllBuilds from './components/AllBuilds.jsx'
 import AllItems from './components/AllItems.jsx'
 import UpdateChampion from './components/UpdateChampion.jsx'
 import NewItem from './components/NewItem.jsx'
@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/champion/edit/:championId" component={UpdateChampion} />
             <Route exact path="/champion/:championId" component={SingleChampion} />
             <Route exact path="/champion/items/:championId" component={BuildPage} />
-            <Route exact path="/results" component={AllResults} />
+            <Route exact path="/build" component={AllBuilds} />
             <Route exact path="/item" component={AllItems} />
             <Route exact path="/item/new" component={NewItem} />
             <Route exact path="/item/edit/:itemId" component={UpdateItem} />

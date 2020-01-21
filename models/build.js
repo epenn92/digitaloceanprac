@@ -1,44 +1,45 @@
 const mongoose = require('./connection.js')
 
-const ResultSchema = new mongoose.Schema({
+const BuildSchema = new mongoose.Schema({
     name: String,
+    description: String,
     ad: Number,
     ap: Number,
-    championId: String,
+    championId: String
 
 })
 
-const ResultCollection = mongoose.model('Results', ResultSchema)
+const BuildCollection = mongoose.model('Builds', BuildSchema)
 
-const getAllResults = () => {
-    return ResultCollection.find()
+const getAllBuilds = () => {
+    return BuildCollection.find()
 }
 
-const getResult = (resultId) => {
-    return ResultCollection.findById(resultId)
+const getBuild = (buildId) => {
+    return BuildCollection.findById(buildId)
 }
 
-const addNewResult = (newResult) => {
-    return ResultCollection.create(newResult)
+const addNewBuild = (newBuild) => {
+    return BuildCollection.create(newBuild)
 }
 
-const updateResult = (resultId, newResult) => {
-    return ResultCollection.findByIdAndUpdate(resultId, newResult)
+const updateBuild = (buildId, newBuild) => {
+    return BuildCollection.findByIdAndUpdate(buildId, newBuild)
 }
 
-const deleteResult = (resultId) => {
-    return ResultCollection.deleteOne({ _id: resultId })
+const deleteBuild = (buildId) => {
+    return BuildCollection.deleteOne({ _id: buildId })
 }
 
-const getResultsByChampionId = (championId) => {
-    return ResultCollection.find({ _id: championId })
+const getBuildsByChampionId = (championId) => {
+    return BuildCollection.find({ _id: championId })
 }
 
 module.exports = {
-    getAllResults,
-    getResult,
-    addNewResult,
-    updateResult,
-    deleteResult,
-    getResultsByChampionId
+    getAllBuilds,
+    getBuild,
+    addNewBuild,
+    updateBuild,
+    deleteBuild,
+    getBuildsByChampionId
 }

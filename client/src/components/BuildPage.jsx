@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 export default class BuildPage extends Component {
 
@@ -23,7 +24,8 @@ export default class BuildPage extends Component {
             name: '',
             description: '',
             ad: 0,
-            ap: 0
+            ap: 0,
+            championId: '',
         }
     }
 
@@ -32,9 +34,15 @@ export default class BuildPage extends Component {
             .then((res) => {
                 this.setState({ 
                     newChampion: res.data,
-                    newBuild: res.data
-                
+                    // newBuild: res.data
+                    newBuild: {
+                        ad: res.data.ad,
+                        ap: res.data.ap,
+                        isMelee: res.data.isMelee,
+                        championId: this.props.match.params.championId
+                    }
                 })
+                console.log(this.state.newBuild)
             })
         axios.get(`/item`)
             .then((res) => {
@@ -72,16 +80,18 @@ export default class BuildPage extends Component {
         const itemAp = parseInt(selectedItem.ap)
         let totalAd = currentAd + itemAd
         let totalAp = currentAp + itemAp
-        console.log(totalAd)
-        console.log(totalAp)
+        // console.log(totalAd)
+        // console.log(totalAp)
         this.setState({ 
             newBuild: {
                 ...this.state.newBuild, 
+                name: this.state.newBuild.name,
                 ad: totalAd,
-                ap: totalAp
+                ap: totalAp,
+                championId: this.props.match.params.championId
             }
         })
-        console.log(this.state.newBuild)
+        // console.log(this.state.newBuild)
         // this.addToTotalStats()
     }
 
@@ -101,25 +111,37 @@ export default class BuildPage extends Component {
     //     })
     //     console.log(this.newBuild)
     // }
+    updateBuildList = () => {
+        axios.get('/build')
+            .then((res) => {
+                this.setState({ newBuild: res.data})
+            })
+    }
 
     onCreateBuildSubmit = (event) => {
         event.preventDefault()
-        axios.post('/results')
+        axios.post('/build/new', this.state.newBuild)
+            .then(() => {
+                this.updateBuildList()
+                this.setState({ redirect: true})
+            })
     }
 
     render() {
         return (
             <div>
+                {this.state.redirect === true ? <Redirect to="/build" /> : null}
                 <h1>Build Your Champion</h1>
                 <h1>{this.state.newChampion.name}</h1>
                  <div>
                     <h3>Your current stats</h3>
                     <h3>Attack Damage:{this.state.newBuild.ad}</h3>
                     <h3>Ability Power: {this.state.newBuild.ap}</h3>
+                    {/* {console.log(this.state.newBuild)} */}
                  </div>
                 <div>
                     <h2>Select your Items</h2>
-                    <form>
+                    <form onSubmit={this.onCreateBuildSubmit}>
                     <span>slot1</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
                     {this.state.items.map((item) => {
@@ -211,7 +233,7 @@ export default class BuildPage extends Component {
                     })}
                     </select>
 
-                    <button onClick={this.onCreateBuildSubmit} type="submit" value="itemForm">Submit your Build</button>
+                    <button type="submit" value="itemForm">Submit your Build</button>
                     </form>
                 </div>
                 
