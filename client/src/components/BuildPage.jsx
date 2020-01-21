@@ -30,7 +30,11 @@ export default class BuildPage extends Component {
     componentDidMount = () => {
         axios.get(`/champion/${this.props.match.params.championId}`)
             .then((res) => {
-                this.setState({ newChampion: res.data})
+                this.setState({ 
+                    newChampion: res.data,
+                    newBuild: res.data
+                
+                })
             })
         axios.get(`/item`)
             .then((res) => {
@@ -51,12 +55,56 @@ export default class BuildPage extends Component {
 
     onItemSelection = (event) => {
         const itemId = event.target.value
+        // console.log(typeof event.target.value)
         const items = this.state.items
-        const selectedItem = items.find( item => itemId === itemId)
-        this.setState({
-            value: selectedItem
+        const selectedItem = items.find( items => items._id === itemId)
+        // console.log(selectedItem.ad)
+        // console.log(selectedItem.ap)
+        // console.log(this.state.newChampion.ad)
+        // this.setState({
+        //     value: selectedItem
+        // })
+        const baseAd = parseInt(this.state.newChampion.ad)
+        const baseAp = parseInt(this.state.newChampion.ap)
+        const currentAd = parseInt(this.state.newBuild.ad)
+        const currentAp = parseInt(this.state.newBuild.ap)
+        const itemAd = parseInt(selectedItem.ad)
+        const itemAp = parseInt(selectedItem.ap)
+        let totalAd = currentAd + itemAd
+        let totalAp = currentAp + itemAp
+        console.log(totalAd)
+        console.log(totalAp)
+        this.setState({ 
+            newBuild: {
+                ...this.state.newBuild, 
+                ad: totalAd,
+                ap: totalAp
+            }
         })
-        console.log(this.state.value)
+        console.log(this.state.newBuild)
+        // this.addToTotalStats()
+    }
+
+    // addToTotalStats = () => {
+    //     const baseAd = parseInt(this.state.newChampion.ad)
+    //     const baseAp = parseInt(this.state.newChampion.ap)
+    //     const itemAd = parseInt(this.state.selectedItem.ad)
+    //     const itemAp = parseInt(this.state.selectedItem.ap)
+    //     const totalAd = baseAd + itemAd
+    //     const totalAp = baseAp + itemAp
+    //     this.setState({ 
+    //         newBuild: {
+    //             ...this.state.newBuild, 
+    //             ad: totalAd,
+    //             ap: totalAp
+    //         }
+    //     })
+    //     console.log(this.newBuild)
+    // }
+
+    onCreateBuildSubmit = (event) => {
+        event.preventDefault()
+        axios.post('/results')
     }
 
     render() {
@@ -66,13 +114,14 @@ export default class BuildPage extends Component {
                 <h1>{this.state.newChampion.name}</h1>
                  <div>
                     <h3>Your current stats</h3>
-                    <h3>Attack Damage:{this.state.newChampion.ad}</h3>
-                    <h3>Ability Power: {this.state.newChampion.ap}</h3>
+                    <h3>Attack Damage:{this.state.newBuild.ad}</h3>
+                    <h3>Ability Power: {this.state.newBuild.ap}</h3>
                  </div>
                 <div>
                     <h2>Select your Items</h2>
-                    
-                    <select selectedValue={this.state.value}  onChange={this.onItemSelection}> 
+                    <form>
+                    <span>slot1</span>
+                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
                     {this.state.items.map((item) => {
                         return(
                             // <>
@@ -85,14 +134,85 @@ export default class BuildPage extends Component {
                         )
                     })}
                     </select>
-                    {/* {{#each allRestaurants}}
-  
-  <option value="new/{{_id}}" {{#if selected}} selected
-  {{/if}}>{{name}}</option>
-  {{/each}}
 
+                    <span>slot2</span>
+                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    {this.state.items.map((item) => {
+                        return(
+                            // <>
+                            //     <option defaultValue value=''>None</option>
+                            // </>
+                            <>
+                                <option value={item._id}>
+                                    {item.name}</option>
+                            </>
+                        )
+                    })}
+                    </select>
 
- </select> */}
+                    <span>slot3</span>
+                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    {this.state.items.map((item) => {
+                        return(
+                            // <>
+                            //     <option defaultValue value=''>None</option>
+                            // </>
+                            <>
+                                <option value={item._id}>
+                                    {item.name}</option>
+                            </>
+                        )
+                    })}
+                    </select>
+
+                    <span>slot4</span>
+                    <select defaultValue={'None'} selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    {this.state.items.map((item) => {
+                        return(
+                            // <>
+                                
+                            // </>
+                            <>
+                            <option value='None'>None</option>
+                                <option value={item._id}>
+                                    {item.name}</option>
+                            </>
+                        )
+                    })}
+                    </select>
+
+                    <span>slot5</span>
+                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    {this.state.items.map((item) => {
+                        return(
+                            // <>
+                            //     <option defaultValue value=''>None</option>
+                            // </>
+                            <>
+                                <option value={item._id}>
+                                    {item.name}</option>
+                            </>
+                        )
+                    })}
+                    </select>
+
+                    <span>slot6</span>
+                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    {this.state.items.map((item) => {
+                        return(
+                            // <>
+                            //     <option defaultValue value=''>None</option>
+                            // </>
+                            <>
+                                <option value={item._id}>
+                                    {item.name}</option>
+                            </>
+                        )
+                    })}
+                    </select>
+
+                    <button onClick={this.onCreateBuildSubmit} type="submit" value="itemForm">Submit your Build</button>
+                    </form>
                 </div>
                 
             </div>
