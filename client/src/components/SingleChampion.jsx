@@ -19,7 +19,8 @@ export default class SingleChampion extends Component {
     componentDidMount = () => {
         axios.get(`/champion/${this.props.match.params.championId}`)
             .then((res) => {
-                this.setState({ newChampion: res.data})
+                this.setState({ newChampion: res.data},
+                console.log(res.data))
             })
     }
 
@@ -46,7 +47,7 @@ export default class SingleChampion extends Component {
 
                 <Link to={`/champion/edit/${this.props.match.params.championId}`} ><button>Edit this Champion</button></Link>
 
-                <button onClick={this.deleteChampion} vlue="Delete">Delete this Champion</button>
+                <button onClick={this.deleteChampion} value="DeleteChampion">Delete this Champion</button>
 
                 <Link to={`/champion/items/${this.props.match.params.championId}`}><button>Preview a build</button></Link>
             </div>

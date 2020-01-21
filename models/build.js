@@ -2,7 +2,6 @@ const mongoose = require('./connection.js')
 
 const BuildSchema = new mongoose.Schema({
     name: String,
-    description: String,
     ad: Number,
     ap: Number,
     championId: String

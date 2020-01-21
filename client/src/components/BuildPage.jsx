@@ -9,9 +9,9 @@ export default class BuildPage extends Component {
         items: [],
         newItem: {
             name: '',
-            description: '',
             ad: 0,
-            ap: 0
+            ap: 0,
+            
         },
         newChampion: {
             name: '',
@@ -22,7 +22,6 @@ export default class BuildPage extends Component {
         },
         newBuild: {
             name: '',
-            description: '',
             ad: 0,
             ap: 0,
             championId: '',
@@ -38,8 +37,8 @@ export default class BuildPage extends Component {
                     newBuild: {
                         ad: res.data.ad,
                         ap: res.data.ap,
-                        isMelee: res.data.isMelee,
-                        championId: this.props.match.params.championId
+                        championId: this.props.match.params.championId,
+                        name: res.data.name
                     }
                 })
                 console.log(this.state.newBuild)
@@ -50,7 +49,9 @@ export default class BuildPage extends Component {
             })
     }
 
-    
+    componentDidUpdate = (event) => {
+        
+    }
     
     onChange = (event) => {
         const value = event.target.value
@@ -85,10 +86,9 @@ export default class BuildPage extends Component {
         this.setState({ 
             newBuild: {
                 ...this.state.newBuild, 
-                name: this.state.newBuild.name,
                 ad: totalAd,
                 ap: totalAp,
-                championId: this.props.match.params.championId
+                
             }
         })
         // console.log(this.state.newBuild)
@@ -144,6 +144,7 @@ export default class BuildPage extends Component {
                     <form onSubmit={this.onCreateBuildSubmit}>
                     <span>slot1</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
                             // <>
@@ -159,6 +160,7 @@ export default class BuildPage extends Component {
 
                     <span>slot2</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
                             // <>
@@ -174,6 +176,7 @@ export default class BuildPage extends Component {
 
                     <span>slot3</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
                             // <>
@@ -189,22 +192,18 @@ export default class BuildPage extends Component {
 
                     <span>slot4</span>
                     <select defaultValue={'None'} selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
-                            // <>
-                                
-                            // </>
-                            <>
-                            <option value='None'>None</option>
                                 <option value={item._id}>
                                     {item.name}</option>
-                            </>
                         )
                     })}
                     </select>
 
                     <span>slot5</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
                             // <>
@@ -220,6 +219,7 @@ export default class BuildPage extends Component {
 
                     <span>slot6</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
                             // <>

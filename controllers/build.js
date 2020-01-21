@@ -24,12 +24,12 @@ buildRouter.post('/new', (req, res) => {
         })
 })
 
-buildRouter.get('/:championId', (req, res) => {
-    buildApi.getBuildsByChampionId(req.params.championId)
-        .then((build) => {
-            res.json(build)
-        })
-})
+// buildRouter.get('/:championId', (req, res) => {
+//     buildApi.getBuildsByChampionId(req.params.championId)
+//         .then((build) => {
+//             res.json(build)
+//         })
+// })
 buildRouter.get('/:buildId', (req, res) => {
     buildApi.getBuild(req.params.buildId)
         .then((build) => {
