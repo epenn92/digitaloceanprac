@@ -25,6 +25,14 @@ export default class BuildPage extends Component {
             ad: 0,
             ap: 0,
             championId: '',
+        },
+        selectItems: {
+            option1: 0,
+            option2: 0,
+            option3: 0,
+            option4: 0,
+            option5: 0,
+            option6: 0
         }
     }
 
@@ -73,24 +81,36 @@ export default class BuildPage extends Component {
         // this.setState({
         //     value: selectedItem
         // })
-        const baseAd = parseInt(this.state.newChampion.ad)
-        const baseAp = parseInt(this.state.newChampion.ap)
-        const currentAd = parseInt(this.state.newBuild.ad)
-        const currentAp = parseInt(this.state.newBuild.ap)
-        const itemAd = parseInt(selectedItem.ad)
-        const itemAp = parseInt(selectedItem.ap)
-        let totalAd = currentAd + itemAd
-        let totalAp = currentAp + itemAp
+
+        // if (selectedItem)
+        // const baseAd = parseInt(this.state.newChampion.ad)
+        // const baseAp = parseInt(this.state.newChampion.ap)
+        // const currentAd = parseInt(this.state.newBuild.ad)
+        // const currentAp = parseInt(this.state.newBuild.ap)
+        // const itemAd = parseInt(selectedItem.ad)
+        // const itemAp = parseInt(selectedItem.ap)
+        // let totalAd = currentAd + itemAd
+        // let totalAp = currentAp + itemAp
         // console.log(totalAd)
         // console.log(totalAp)
         this.setState({ 
-            newBuild: {
-                ...this.state.newBuild, 
-                ad: totalAd,
-                ap: totalAp,
-                
-            }
+            selectItems: {
+                option1: {...this.selectedItem},
+                option2: selectedItem,
+                option3: selectedItem,
+                option4: selectedItem,
+                option5: selectedItem,
+                option6: selectedItem
+            },
+
         })
+        // console.log(selectedItem)
+        console.log(this.state.selectItems.option1)
+        console.log(this.state.selectItems.option2)
+        console.log(this.state.selectItems.option3)
+        console.log(this.state.selectItems.option4)
+        console.log(this.state.selectItems.option5)
+        console.log(this.state.selectItems.option6)
         // console.log(this.state.newBuild)
         // this.addToTotalStats()
     }
@@ -145,7 +165,7 @@ export default class BuildPage extends Component {
                     <span>slot1</span>
                     <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
                     <option value='None'>None</option>
-                    {this.state.items.map((item) => {
+                    {this.state.items.map((item, i) => {
                         return(
                             // <>
                             //     <option defaultValue value=''>None</option>
