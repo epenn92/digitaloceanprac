@@ -21,14 +21,14 @@ itemRouter.get('/:itemId', (req, res) => {
         })
 })
 
-itemRouter.post('/', (req, res) => {
+itemRouter.post('/new', (req, res) => {
     itemApi.addNewItem(req.body)
         .then((item) => {
             res.json({ item })
         })
 })
 
-itemRouter.put('/:itemId', (req, res) => {
+itemRouter.put('/edit/:itemId', (req, res) => {
     itemApi.updateItem(req.params.itemId, req.body)
         .then(() => {
             res.json({})

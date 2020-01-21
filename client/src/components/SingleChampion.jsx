@@ -47,6 +47,8 @@ export default class SingleChampion extends Component {
                 <Link to={`/champion/edit/${this.props.match.params.championId}`} ><button>Edit this Champion</button></Link>
 
                 <button onClick={this.deleteChampion} vlue="Delete">Delete this Champion</button>
+
+                <Link to={`/champion/items/${this.props.match.params.championId}`}><button>Preview a build</button></Link>
             </div>
         )
 

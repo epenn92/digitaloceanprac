@@ -5,8 +5,7 @@ import Homepage from './components/Homepage.jsx'
 import Champion from './components/Champion.jsx'
 import SingleChampion from './components/SingleChampion.jsx'
 import NewChampion from './components/NewChampion.jsx'
-import ChampionItems from './components/ChampionItems.jsx'
-import ChampionResults from './components/ChampionResults.jsx'
+import BuildPage from './components/BuildPage.jsx'
 import AllResults from './components/AllResults.jsx'
 import AllItems from './components/AllItems.jsx'
 import UpdateChampion from './components/UpdateChampion.jsx'
@@ -25,13 +24,12 @@ class App extends Component {
             <Route exact path="/champion/new" component={NewChampion} />
             <Route exact path="/champion/edit/:championId" component={UpdateChampion} />
             <Route exact path="/champion/:championId" component={SingleChampion} />
-            <Route exact path="/champion/items/:championId" component={ChampionItems} />
-            <Route exact path="/champion/results/:championId" component={ChampionResults} />
-            <Route path="/results" component={AllResults} />
-            <Route path="/item" component={AllItems} />
-            <Route path="/item/new" component={NewItem} />
-            <Route path="/item/edit" component={UpdateItem} />
-            <Route path="/item/:itemId" component={SingleItem} />
+            <Route exact path="/champion/items/:championId" component={BuildPage} />
+            <Route exact path="/results" component={AllResults} />
+            <Route exact path="/item" component={AllItems} />
+            <Route exact path="/item/new" component={NewItem} />
+            <Route exact path="/item/edit/:itemId" component={UpdateItem} />
+            <Route exact path="/item/:itemId" component={SingleItem} />
 
 
           </Switch>

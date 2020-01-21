@@ -14,16 +14,16 @@ export default class NewChampion extends Component {
             ad: 0,
             ap: 0
         },
-        items: [], 
-        newItem: {
-            name: '',
-            description: '',
-            isMelee: false,
-            damageType: '',
-            ad: 0,
-            ap: 0,
-            unique: false
-        }
+        // items: [], 
+        // newItem: {
+        //     name: '',
+        //     description: '',
+        //     isMelee: false,
+        //     damageType: '',
+        //     ad: 0,
+        //     ap: 0,
+        //     unique: false
+        // }
     }
 
     componentDidMount = () => {

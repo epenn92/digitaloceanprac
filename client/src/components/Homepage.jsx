@@ -10,7 +10,7 @@ export default class Homepage extends Component {
             <div className="buttons">
                 <h1>Welcome to my LeagueApp</h1>
                 <div>
-               <Link to="/items"><button>View All Items</button></Link>
+               <Link to="/item"><button>View All Items</button></Link>
                </div>
                <div>
                <Link to="/champion/new"><button>Create a Champion!</button></Link>
@@ -20,6 +20,9 @@ export default class Homepage extends Component {
                </div>
                <div>
                <Link to="/champion"><button>View All Champions</button></Link>
+                </div>
+                <div>
+                    <Link to="/item/new"><button>Create an Item!</button></Link>
                 </div>
             </div>
         )
