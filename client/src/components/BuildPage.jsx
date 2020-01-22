@@ -25,14 +25,6 @@ export default class BuildPage extends Component {
             ad: 0,
             ap: 0,
             championId: '',
-        },
-        selectItems: {
-            option1: 0,
-            option2: 0,
-            option3: 0,
-            option4: 0,
-            option5: 0,
-            option6: 0
         }
     }
 
@@ -81,56 +73,65 @@ export default class BuildPage extends Component {
         // this.setState({
         //     value: selectedItem
         // })
+      
+        const baseAd = parseInt(this.state.newChampion.ad)
+        const baseAp = parseInt(this.state.newChampion.ap)
+        const currentAd = parseInt(this.state.newBuild.ad)
+        const currentAp = parseInt(this.state.newBuild.ap)
+        const itemAd = parseInt(selectedItem.ad)
+        const itemAp = parseInt(selectedItem.ap)
+        let totalAd = 0
+        let totalAp = 0
+         totalAd = currentAd + itemAd
+         totalAp = currentAp + itemAp
 
-        // if (selectedItem)
-        // const baseAd = parseInt(this.state.newChampion.ad)
-        // const baseAp = parseInt(this.state.newChampion.ap)
-        // const currentAd = parseInt(this.state.newBuild.ad)
-        // const currentAp = parseInt(this.state.newBuild.ap)
-        // const itemAd = parseInt(selectedItem.ad)
-        // const itemAp = parseInt(selectedItem.ap)
-        // let totalAd = currentAd + itemAd
-        // let totalAp = currentAp + itemAp
+         let option1 = document.getElementById('op1')
+         let option1AP =  items.find( items => items._id === option1.value).ap
+         let option1AD =  items.find( items => items._id === option1.value).ad
+         console.log(option1.value )
+
+
+
+
+
+
         // console.log(totalAd)
         // console.log(totalAp)
-        this.setState({ 
-            selectItems: {
-                option1: {...this.selectedItem},
-                option2: selectedItem,
-                option3: selectedItem,
-                option4: selectedItem,
-                option5: selectedItem,
-                option6: selectedItem
-            },
+        // this.setState({ 
+        //     selectItems: {
+        //         option1: selectedItem,
+        //         option2: selectedItem,
+        //         option3: selectedItem,
+        //         option4: selectedItem,
+        //         option5: selectedItem,
+        //         option6: selectedItem
+        //     },
 
-        })
+        // })
         // console.log(selectedItem)
-        console.log(this.state.selectItems.option1)
-        console.log(this.state.selectItems.option2)
-        console.log(this.state.selectItems.option3)
-        console.log(this.state.selectItems.option4)
-        console.log(this.state.selectItems.option5)
-        console.log(this.state.selectItems.option6)
+        console.log(selectedItem)
+        // console.log(this.state.selectItems.option2)
+        // console.log(this.state.selectItems.option3)
+        // console.log(this.state.selectItems.option4)
+        // console.log(this.state.selectItems.option5)
+        // console.log(this.state.selectItems.option6)
+
+        this.setState({ 
+            newBuild: {
+                 
+                ad: totalAd,
+                ap: totalAp,
+                
+            }
+        })
         // console.log(this.state.newBuild)
         // this.addToTotalStats()
+      
+
     }
 
-    // addToTotalStats = () => {
-    //     const baseAd = parseInt(this.state.newChampion.ad)
-    //     const baseAp = parseInt(this.state.newChampion.ap)
-    //     const itemAd = parseInt(this.state.selectedItem.ad)
-    //     const itemAp = parseInt(this.state.selectedItem.ap)
-    //     const totalAd = baseAd + itemAd
-    //     const totalAp = baseAp + itemAp
-    //     this.setState({ 
-    //         newBuild: {
-    //             ...this.state.newBuild, 
-    //             ad: totalAd,
-    //             ap: totalAp
-    //         }
-    //     })
-    //     console.log(this.newBuild)
-    // }
+    
+
     updateBuildList = () => {
         axios.get('/build')
             .then((res) => {
@@ -163,15 +164,15 @@ export default class BuildPage extends Component {
                     <h2>Select your Items</h2>
                     <form onSubmit={this.onCreateBuildSubmit}>
                     <span>slot1</span>
-                    <select selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
+                    <select id="op1" selectedvalue={this.state.value}  onChange={this.onItemSelection}> 
                     <option value='None'>None</option>
-                    {this.state.items.map((item, i) => {
+                    {this.state.items.map((item) => {
                         return(
                             // <>
                             //     <option defaultValue value=''>None</option>
                             // </>
                             <>
-                                <option value={item._id}>
+                                <option id="op1" value={item._id}>
                                     {item.name}</option>
                             </>
                         )
@@ -187,7 +188,7 @@ export default class BuildPage extends Component {
                             //     <option defaultValue value=''>None</option>
                             // </>
                             <>
-                                <option value={item._id}>
+                                <option id="op2" value={item._id}>
                                     {item.name}</option>
                             </>
                         )
@@ -203,7 +204,7 @@ export default class BuildPage extends Component {
                             //     <option defaultValue value=''>None</option>
                             // </>
                             <>
-                                <option value={item._id}>
+                                <option id="op3" value={item._id}>
                                     {item.name}</option>
                             </>
                         )
@@ -215,7 +216,7 @@ export default class BuildPage extends Component {
                     <option value='None'>None</option>
                     {this.state.items.map((item) => {
                         return(
-                                <option value={item._id}>
+                                <option id="op4" value={item._id}>
                                     {item.name}</option>
                         )
                     })}
@@ -230,7 +231,7 @@ export default class BuildPage extends Component {
                             //     <option defaultValue value=''>None</option>
                             // </>
                             <>
-                                <option value={item._id}>
+                                <option id="op5" value={item._id}>
                                     {item.name}</option>
                             </>
                         )
@@ -246,7 +247,7 @@ export default class BuildPage extends Component {
                             //     <option defaultValue value=''>None</option>
                             // </>
                             <>
-                                <option value={item._id}>
+                                <option id="op6" value={item._id}>
                                     {item.name}</option>
                             </>
                         )
