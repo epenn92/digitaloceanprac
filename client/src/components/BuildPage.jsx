@@ -18,7 +18,8 @@ export default class BuildPage extends Component {
             description: '',
             isMelee: false,
             ad: 0,
-            ap: 0
+            ap: 0,
+            image: ''
         },
         newBuild: {
             name: '',
@@ -177,6 +178,7 @@ export default class BuildPage extends Component {
                 {this.state.redirect === true ? <Redirect to="/build" /> : null}
                 <h1>Build Your Champion</h1>
                 <h1>{this.state.newChampion.name}</h1>
+                <img src={`${this.state.newChampion.image}`} alt={`${this.state.newChampion.name}`} />
                  <div>
                     <h3>Your current stats</h3>
                     <h3>Attack Damage:{this.state.newBuild.ad}</h3>

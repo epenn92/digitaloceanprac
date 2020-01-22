@@ -24,8 +24,9 @@ export default class Champion extends Component {
                     return (
                         <div>
                             <Link to={`/champion/${champion._id}`}>
-                            <h1>Name: {champion.name}</h1> </Link>
-                            <h3>Description:{champion.description}</h3>
+                            <h1>{champion.name}</h1> </Link>
+                            <h3>{champion.description}</h3>
+                            <img src={`${champion.image}`} alt={`${champion.name}`}></img>
                             {/* <h3>Melee?{champion.isMelee}</h3>
                             <h3>Damage Type: {champion.damageType}</h3>
                             <h3>Base Attack Damage: {champion.ad}</h3>

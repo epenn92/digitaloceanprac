@@ -30,43 +30,46 @@ class App extends Component {
 
           </ul>
         </nav>
-        <Router>
-          <div className='Routes'>
-            <Switch>
-              <Route exact path="/" component={Homepage} />
-              <Route exact path="/champion" component={Champion} />
-              <Route exact path="/champion/new" component={NewChampion} />
-              <Route exact path="/champion/edit/:championId" component={UpdateChampion} />
-              <Route exact path="/champion/:championId" component={SingleChampion} />
-              <Route exact path="/champion/items/:championId" component={BuildPage} />
-              <Route exact path="/build" component={AllBuilds} />
-              <Route exact path="/build/:buildId" component={SingleBuild} />
-              <Route exact path="/item" component={AllItems} />
-              <Route exact path="/item/new" component={NewItem} />
-              <Route exact path="/item/edit/:itemId" component={UpdateItem} />
-              <Route exact path="/item/:itemId" component={SingleItem} />
-            </Switch>
-          </div>
-        </Router>
         <div className="pageContainer">
+
+          <Router>
+            <div className='Routes'>
+              <Switch>
+                <Route exact path="/" component={Homepage} />
+                <Route exact path="/champion" component={Champion} />
+                <Route exact path="/champion/new" component={NewChampion} />
+                <Route exact path="/champion/edit/:championId" component={UpdateChampion} />
+                <Route exact path="/champion/:championId" component={SingleChampion} />
+                <Route exact path="/champion/items/:championId" component={BuildPage} />
+                <Route exact path="/build" component={AllBuilds} />
+                <Route exact path="/build/:buildId" component={SingleBuild} />
+                <Route exact path="/item" component={AllItems} />
+                <Route exact path="/item/new" component={NewItem} />
+                <Route exact path="/item/edit/:itemId" component={UpdateItem} />
+                <Route exact path="/item/:itemId" component={SingleItem} />
+              </Switch>
+            </div>
+          </Router>
 
 
         </div>
-        <footer id='footer'>
-          <nav>
-            <ul className="footerOptions">
-              <li><p className="thanks">Thanks for visiting</p></li>
-              <li className="socialMedia">
-                <button className="icon"><a href="https://twitter.com/LeagueOfLegends" className="fa fa-twitter"></a></button>
-                <button className="icon"><a href="https://www.facebook.com/leagueoflegends/" className="fa fa-facebook"></a></button>
-                <button className="icon"><a href="https://www.linkedin.com/company/riot-games/" className="fa fa-linkedin"></a></button>
-                <button className="icon"><a href="https://github.com/topics/league-of-legends" className="fa fa-github"></a></button>
-                <button className="icon"><a href="#" className="fa fa-rss"></a></button>
-              </li>
-              <li><p className="followUs">Follow us</p></li>
-            </ul>
-          </nav>
-        </footer>
+        <div class="footerSpace">.
+          <footer id='footer'>
+            <nav>
+              <ul className="footerOptions">
+                <li><p className="thanks">Thanks for visiting</p></li>
+                <li className="socialMedia">
+                  <button className="icon"><a href="https://twitter.com/LeagueOfLegends" className="fa fa-twitter"></a></button>
+                  <button className="icon"><a href="https://www.facebook.com/leagueoflegends/" className="fa fa-facebook"></a></button>
+                  <button className="icon"><a href="https://www.linkedin.com/company/riot-games/" className="fa fa-linkedin"></a></button>
+                  <button className="icon"><a href="https://github.com/topics/league-of-legends" className="fa fa-github"></a></button>
+                  <button className="icon"><a href="https://github.com/epenn92/Project-3" className="fa fa-rss"></a></button>
+                </li>
+                <li><p className="followUs">Follow us</p></li>
+              </ul>
+            </nav>
+          </footer>
+        </div>
 
       </div>
     );

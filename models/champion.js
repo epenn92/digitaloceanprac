@@ -7,6 +7,7 @@ const ChampionSchema = new mongoose.Schema({
   damageType: String,
   ad: Number,
   ap: Number,
+  image: String,
 
 })
 

@@ -13,6 +13,7 @@ export default class SingleChampion extends Component {
             damageType: '',
             ad: 0,
             ap: 0,
+            image: ''
         }
     }
 
@@ -37,6 +38,7 @@ export default class SingleChampion extends Component {
                 <div>
                 {this.state.redirect === true ? <Redirect to="/champion" /> : null}
                 <h1>Your Champion Stats</h1>
+                <img src={`${this.state.newChampion.image}`} alt={`Champion ${this.state.newChampion.name}`}></img>
                 <h3>{this.state.newChampion.name}</h3>
                 <h3>{this.state.newChampion.description}</h3>
                 <h3>Melee?{this.state.newChampion.isMelee}</h3>

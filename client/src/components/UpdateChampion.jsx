@@ -12,7 +12,8 @@ export default class UpdateChampion extends Component {
             isMelee: false,
             damageType: '',
             ad: 0,
-            ap: 0
+            ap: 0,
+            image: ''
         }
     }
 
@@ -62,6 +63,7 @@ export default class UpdateChampion extends Component {
             <input type="text" name="damageType" value={this.state.newChampion.damageType} placeholder="Phy, Mag, mixed Damage" onChange={this.onChange} />
             <input type="number" name="ad" value={this.state.newChampion.ad} placeholder="Base AD" onChange={this.onChange} />
             <input type="number" name="ap" value={this.state.newChampion.ap} placeholder="Base AP" onChange={this.onChange} />
+            <input type="text" name="image" value={this.state.newChampion.image} placeholder="Link to image?" onChange={this.onChange} />
             <button type="submit" value="updateChampion">Update Champion</button>
             </form>
             </div>
