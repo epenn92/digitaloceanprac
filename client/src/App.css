@@ -1,33 +1,213 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* .App {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+.siteContainer {
+  flex: 1;
+} */
+
+html {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  /* background-color: silver; */
+  color: black;
+ font-family: 'Cinzel', serif;
+   /* fallback for old browsers */
+  background-image: url('https://www.pixelstalk.net/wp-content/uploads/images2/League-Of-Legends-Wallpaper-HD-768x432.jpg'); 
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+button:focus {
+  outline: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: goldenrod;  /* fallback for old browsers */
+  background: rgb(0,0,0);
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(184,130,36,1) 53%, rgba(232,174,41,1) 64%, rgba(237,186,42,1) 72%, rgba(253,227,45,1) 100%);
+
+  position: fixed;
+  width: 100%;
+  height: 6rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+a:link, a:visited {
+  
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.navbarOptions li a:link, a:visited {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  line-height: 1.5rem;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  }
+
+.navbarOptions {
+  display: flex;
+  width: 95%;
+  height: 95%;
+  margin: 20%;
+  list-style: none;
+  align-items: center;
+  
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.brand {
+  display: inline-block;
+  margin-left: 4.5rem;
+  margin-right: 4.5rem;
+  height: 2.9rem;
+}
+
+.brand img {
+  position: absolute;
+  display: inline-block;
+  height: 95%;
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  z-index: 1;
+ 
+}
+
+.navbarOptions li {
+  display: inline-block;
+  height: 2.9rem;
+  font-family: 'Acme', sans-serif;
+  line-height: 2.8rem;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  margin-bottom: 0;
+}
+
+.navbarOptions li a:hover {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  border-radius: 100px;
+  transform: scale(1.3)
+}
+
+.footerNavbar {
+  display: flex;
+  flex: 2;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #485563;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  position: absolute;
+  /* width: 20%;
+  height: 20%; */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* margin: -10px; */
+  outline: 10px solid black;
+  margin-top: 5rem;
+  border-right: 10px solid black;
+}
+
+.wrap {
+  /* padding-bottom: 10rem; */
+}
+
+.footerNavbarOptions {
+  display: flex;
+  flex-direction: row;
+}
+
+.footerNavbarOptions li {
+  list-style: none;
+  color: black;
+}
+
+.socialMedia a {
+  text-decoration: none;
+}
+.thanks {
+  margin-right: 20rem;
+}
+
+.followUs {
+
+}
+.socialMedia {
+  color: black;
+  margin-top: .5px;
+  margin-right: 20rem;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  border-color: black;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: #485563;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-size: 20px;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  transform: scale(1)
+}
+
+.icon:hover {
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition: .5s;
+  background-color: #322f30;
+  transform: scale(1.3)
+}
+
+.container {
+  margin: 10% 3%;
+  background-color: rgb(10, 50, 124);
+  padding: 5px;
+  outline: 5px solid rgb(10, 50, 124);  
+  border: 5px solid silver;  
+  border-radius: 3%;
+  
+}
+
+#footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0
 }
