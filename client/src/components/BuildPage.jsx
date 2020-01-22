@@ -81,10 +81,11 @@ export default class BuildPage extends Component {
         const currentAp = parseInt(this.state.newBuild.ap)
         const itemAd = parseInt(selectedItem.ad)
         const itemAp = parseInt(selectedItem.ap)
+        const previousAd = 
             let totalAd = 0
             let totalAp = 0
-            totalAd = currentAd + itemAd
-            totalAp = currentAp + itemAp
+            totalAd = currentAd + itemAd - itemAd
+            totalAp = currentAp + itemAp - itemAp
 
         // let option1 = document.getElementById('op1')
         // let option1Ad =  items.find( items => items._id === option1.value).ad

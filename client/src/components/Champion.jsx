@@ -19,12 +19,12 @@ export default class Champion extends Component {
     render() {
         return (
             <div>
-                <h1>View All Champions</h1>
+                <h1 className="title">View All Champions</h1>
                 {this.state.champions.map((champion) => {
                     return (
-                        <div>
+                        <div className="championPage">
                             <Link to={`/champion/${champion._id}`}>
-                            <h1>{champion.name}</h1> </Link>
+                            <h1 className="championName">{champion.name}</h1> </Link>
                             <h3>{champion.description}</h3>
                             <img src={`${champion.image}`} alt={`${champion.name}`}></img>
                             {/* <h3>Melee?{champion.isMelee}</h3>

@@ -53,7 +53,7 @@ class App extends Component {
 
 
         </div>
-        <div class="footerSpace">.
+        <div className="footerSpace">.
           <footer id='footer'>
             <nav>
               <ul className="footerOptions">
@@ -77,3 +77,5 @@ class App extends Component {
 }
 
 export default App;
+
+

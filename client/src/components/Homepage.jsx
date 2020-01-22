@@ -8,7 +8,7 @@ export default class Homepage extends Component {
     render() {
         return (
             <div className="buttons">
-                <h1>Welcome to my LeagueApp</h1>
+                <h1 className="title">Welcome to my LeagueApp</h1>
                 <div>
                <Link to="/item"><button>View All Items</button></Link>
                </div>
