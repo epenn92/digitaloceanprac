@@ -1,96 +1,22 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+================vxcggt option2Ad =  items.find( items => items._id === option2.value).ad
+        let option2Ap =  items.find( items => items._id === option2.value).ap
+        let option3 = document.getElementById('op3')
+        let option3Ad =  items.find( items => items._id === option3.value).ad
+        let option3Ap =  items.find( items => items._id === option3.value).ap
+        let option4 = document.getElementById('op4')
+        let option4Ad =  items.find( items => items._id === option4.value).ad
+        let option4Ap =  items.find( items => items._id === option4.value).ap
+        let option5 = document.getElementById('op5')
+        let option5Ad =  items.find( items => items._id === option5.value).ad
+        let option5Ap =  items.find( items => items._id === option5.value).ap
+        let option6 = document.getElementById('op6')
+        let option6Ad =  items.find( items => items._id === option6.value).ad
+        let option6Ap =  items.find( items => items._id === option6.value).ap
 
-export default class BuildPage extends Component {
-
-    state = {
-        builds: [],
-        items: [],
-        newItem: {
-            name: '',
-            ad: 0,
-            ap: 0,
-            
-        },
-        newChampion: {
-            name: '',
-            description: '',
-            isMelee: false,
-            ad: 0,
-            ap: 0
-        },
-        newBuild: {
-            name: '',
-            ad: 0,
-            ap: 0,
-            championId: '',
-        }
-    }
-
-    componentDidMount = () => {
-        axios.get(`/champion/${this.props.match.params.championId}`)
-            .then((res) => {
-                this.setState({ 
-                    newChampion: res.data,
-                    // newBuild: res.data
-                    newBuild: {
-                        ad: res.data.ad,
-                        ap: res.data.ap,
-                        championId: this.props.match.params.championId,
-                        name: res.data.name
-                    }
-                })
-                console.log(this.state.newBuild)
-            })
-        axios.get(`/item`)
-            .then((res) => {
-                this.setState({ items: res.data})
-            })
-    }
-
-    componentDidUpdate = (event) => {
-        
-    }
-    
-    onChange = (event) => {
-        const value = event.target.value
-        const field = event.target.name
-
-        const newState = { ...this.state }
-        newState.newChampion[field] = value
-        this.setState(newState)
-    }
-
-    onItemSelection = (event) => {
-        const itemId = event.target.value
-        // console.log(typeof event.target.value)
-        const items = this.state.items
-        const selectedItem = items.find( items => items._id === itemId)
-        // console.log(selectedItem.ad)
-        // console.log(selectedItem.ap)
-        // console.log(this.state.newChampion.ad)
-        // this.setState({
-        //     value: selectedItem
-        // })
-      
-        const baseAd = parseInt(this.state.newChampion.ad)
-        const baseAp = parseInt(this.state.newChampion.ap)
-        const currentAd = parseInt(this.state.newBuild.ad)
-        const currentAp = parseInt(this.state.newBuild.ap)
-        const itemAd = parseInt(selectedItem.ad)
-        const itemAp = parseInt(selectedItem.ap)
-        let totalAd = 0
-        let totalAp = 0
-         totalAd = currentAd + itemAd
-         totalAp = currentAp + itemAp
-
-         let option1 = document.getElementById('op1')
-         let option1AP =  items.find( items => items._id === option1.value).ap
-         let option1AD =  items.find( items => items._id === option1.value).ad
-         console.log(option1.value )
-
-
+        let totalAd = option1Ad + option2Ad + option3Ad + option4Ad + option5Ad + option6Ad
+        let totalAp = option1Ap + option2Ap + option3Ap + option4Ap + option5Ap + option6Ap
+        console.log(totalAd)
+        console.log(totalAp)
 
 
 
