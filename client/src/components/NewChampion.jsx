@@ -28,7 +28,7 @@ export default class NewChampion extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/champion/')
+        axios.get('/api/champion/')
             .then((res) => {
                 this.setState({ champions: res.data})
             })
@@ -40,7 +40,7 @@ export default class NewChampion extends Component {
 
 
     updateChampionList = () => {
-        axios.get('/champion')
+        axios.get('/api/champion')
             .then((res) => {
                 this.setState({ champions: res.data})
             })
@@ -57,7 +57,7 @@ export default class NewChampion extends Component {
 
     onSubmitCreateForm = (event) => {
         event.preventDefault()
-        axios.post('/champion/new', this.state.newChampion)
+        axios.post('/api/champion/new', this.state.newChampion)
             .then(() => {
                 this.updateChampionList()
                 this.setState({ redirect: true})

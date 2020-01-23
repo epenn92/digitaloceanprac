@@ -17,14 +17,14 @@ export default class SingleItem extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/item/${this.props.match.params.itemId}`)
+        axios.get(`/api/item/${this.props.match.params.itemId}`)
             .then((res) => {
                 this.setState({ newItem: res.data})
             })
     }
 
     deleteItem = () => {
-        axios.delete(`/item/${this.props.match.params.itemId}`)
+        axios.delete(`/api/item/${this.props.match.params.itemId}`)
             .then(() => {
                 this.setState({ redirect: true })
             }) 

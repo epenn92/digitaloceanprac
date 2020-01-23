@@ -19,7 +19,7 @@ export default class NewItem extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/item/')
+        axios.get('/api/item/')
             .then((res) => {
                 this.setState({ items: res.data})
             })
@@ -27,7 +27,7 @@ export default class NewItem extends Component {
 
 
     updateItemList = () => {
-        axios.get('/item')
+        axios.get('/api/item')
             .then((res) => {
                 this.setState({ items: res.data})
             })
@@ -44,7 +44,7 @@ export default class NewItem extends Component {
 
     onSubmitCreateForm = (event) => {
         event.preventDefault()
-        axios.post('/item/new', this.state.newItem)
+        axios.post('/api/item/new', this.state.newItem)
             .then(() => {
                 this.updateItemList()
                 this.setState({ redirect: true})

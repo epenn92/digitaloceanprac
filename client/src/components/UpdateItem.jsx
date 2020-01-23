@@ -17,7 +17,7 @@ export default class UpdateItem extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/item/${this.props.match.params.itemId}`)
+        axios.get(`/api/item/${this.props.match.params.itemId}`)
             .then((res) => {
                 this.setState({ newItem: res.data})
             })
@@ -36,7 +36,7 @@ export default class UpdateItem extends Component {
 
     onSubmitUpdateForm = (event) => {
         event.preventDefault()
-        axios.put(`/item/edit/${this.props.match.params.itemId}`, this.state.newItem)
+        axios.put(`/api/item/edit/${this.props.match.params.itemId}`, this.state.newItem)
             .then(() => {
                 this.setState({ redirect: true})
             })

@@ -10,7 +10,7 @@ export default class AllBuilds extends Component {
 
     componentDidMount = () => {
         
-        axios.get('/build')
+        axios.get('/api/build')
             .then((res) => {
                 
                 this.setState({

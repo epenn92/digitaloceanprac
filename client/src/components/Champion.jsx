@@ -10,7 +10,7 @@ export default class Champion extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/champion')
+        axios.get('/api/champion')
             .then((res) => {
                 this.setState({ champions: res.data})
             })

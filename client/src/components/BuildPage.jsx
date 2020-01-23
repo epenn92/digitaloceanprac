@@ -30,7 +30,7 @@ export default class BuildPage extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/champion/${this.props.match.params.championId}`)
+        axios.get(`/api/champion/${this.props.match.params.championId}`)
             .then((res) => {
                 this.setState({ 
                     newChampion: res.data,
@@ -44,7 +44,7 @@ export default class BuildPage extends Component {
                 })
                 console.log(this.state.newBuild)
             })
-        axios.get(`/item`)
+        axios.get(`/api/item`)
             .then((res) => {
                 this.setState({ items: res.data})
             })
@@ -154,7 +154,7 @@ export default class BuildPage extends Component {
     
 
     updateBuildList = () => {
-        axios.get('/build')
+        axios.get('/api/build')
             .then((res) => {
                 this.setState({ newBuild: res.data})
             })
@@ -162,7 +162,7 @@ export default class BuildPage extends Component {
 
     onCreateBuildSubmit = (event) => {
         event.preventDefault()
-        axios.post('/build/new', this.state.newBuild)
+        axios.post('/api/build/new', this.state.newBuild)
             .then(() => {
                 this.updateBuildList()
                 this.setState({ redirect: true})

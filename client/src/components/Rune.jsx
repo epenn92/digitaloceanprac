@@ -11,7 +11,7 @@ export default class Rune extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/rune')
+        axios.get('/api/rune')
             .then((res) => {
                 console.log(res.data)
                 this.setState({ runes: res.data})

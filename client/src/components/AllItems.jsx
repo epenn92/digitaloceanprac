@@ -9,7 +9,7 @@ export default class AllItems extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/item')
+        axios.get('/api/item')
             .then((res) => {
                 this.setState({ items: res.data})
             })

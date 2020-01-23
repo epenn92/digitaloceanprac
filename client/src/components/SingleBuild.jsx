@@ -15,7 +15,7 @@ export default class SingleBuild extends Component {
     } 
 
     componentDidMount = () => {
-        axios.get(`/build/${this.props.match.params.buildId}`)
+        axios.get(`/api/build/${this.props.match.params.buildId}`)
             .then((res) => {
                 this.setState({ newBuild: res.data }
                     )
@@ -24,7 +24,7 @@ export default class SingleBuild extends Component {
     }
 
     deleteBuild = () => {
-        axios.delete(`/build/${this.props.match.params.buildId}`)
+        axios.delete(`/api/build/${this.props.match.params.buildId}`)
             .then(() => {
                 this.setState({ redirect: true})
             })

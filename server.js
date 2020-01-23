@@ -20,6 +20,7 @@ const { championRouter } = require('./controllers/champion.js')
 const { itemRouter } = require('./controllers/item.js')
 const { buildRouter } = require('./controllers/build.js')
 const { runeRouter } = require('./controllers/rune.js')
+// const { championRuneRouter } = require('./controllers/championRune.js')
 
 
 /* Step 3
@@ -52,10 +53,11 @@ app.use(express.static(`${__dirname}/client/build`))
  * add router for the application to use. The first argument is a prefix to all
  * the paths defined in the router.
  */
-app.use('/champion', championRouter)
-app.use('/item', itemRouter)
-app.use('/build', buildRouter)
-app.use('/rune', runeRouter)
+app.use('/api/champion', championRouter)
+app.use('/api/item', itemRouter)
+app.use('/api/build', buildRouter)
+app.use('/api/rune', runeRouter)
+// app.use('/championRune', championRuneRouter)
 
 /* Step 5
  *

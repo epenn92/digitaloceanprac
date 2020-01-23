@@ -18,7 +18,7 @@ export default class SingleChampion extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/champion/${this.props.match.params.championId}`)
+        axios.get(`/api/champion/${this.props.match.params.championId}`)
             .then((res) => {
                 this.setState({ newChampion: res.data},
                 console.log(res.data))
@@ -26,7 +26,7 @@ export default class SingleChampion extends Component {
     }
 
     deleteChampion = () => {
-        axios.delete(`/champion/${this.props.match.params.championId}`)
+        axios.delete(`/api/champion/${this.props.match.params.championId}`)
             .then(() => {
                 this.setState({ redirect: true })
             }) 

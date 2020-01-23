@@ -191,7 +191,15 @@ button:hover{
   #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00, 3px 2px 7px rgba(206,89,55,0);
   color: rgb(155, 111, 29)
 }
+h1 a:link {
+  text-decoration: none;
+  color: black
+}
 
+a:link {
+  text-decoration: none;
+  color: black
+}
 
 a:link, a:visited {
   

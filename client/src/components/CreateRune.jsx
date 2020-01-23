@@ -26,11 +26,11 @@ export default class CreateRune extends Component {
     }
 
     componentDidMount = () => {
-        axios.get('/rune')
+        axios.get('/api/rune')
             .then((res) => {
                 this.setState({ runes: res.data})
             })
-        axios.get('/champion')
+        axios.get('/api/champion')
             .then((res) => {
                 this.setState({champions: res.data})
             })
@@ -39,7 +39,7 @@ export default class CreateRune extends Component {
 
 
     updateRuneList = () => {
-        axios.get('/rune')
+        axios.get('/api/rune')
             .then((res) => {
                 this.setState({ newRune: res.data,
                 selectedChampion: res.data
@@ -86,7 +86,7 @@ export default class CreateRune extends Component {
             },
             selectedChampion: this.state.selectedChampion
         })
-        axios.post('/rune/new', this.state.newRune)
+        axios.post('/api/rune/new', this.state.newRune)
         .then(() => {
             console.log(this.state.newRune)
             this.updateRuneList()

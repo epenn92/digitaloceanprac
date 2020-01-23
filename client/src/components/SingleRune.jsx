@@ -14,7 +14,7 @@ export default class SingleRune extends Component {
     }
 
     componentDidMount = () => {
-        axios.get(`/rune/${this.props.match.params.runeId}`)
+        axios.get(`/api/rune/${this.props.match.params.runeId}`)
             .then((res) => {
                 this.setState({ newRune: res.data},
                 console.log(res.data))
@@ -22,7 +22,7 @@ export default class SingleRune extends Component {
     }
 
     deleteRune = () => {
-        axios.delete(`/rune/${this.props.match.params.runeId}`)
+        axios.delete(`/api/rune/${this.props.match.params.runeId}`)
             .then(() => {
                 this.setState({ redirect: true })
             }) 
