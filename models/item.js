@@ -1,12 +1,12 @@
 const mongoose = require('./connection.js')
 
 const ItemSchema = new mongoose.Schema({
-    name: String,
-    description: String,
+    itemName: String,
+    itemDescription: String,
     isMelee: Boolean,
     damageType: String,
-    ad: Number,
-    ap: Number,
+    itemAd: Number,
+    itemAp: Number,
     unique: Boolean,
 
 })

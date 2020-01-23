@@ -37,9 +37,9 @@ export default class AllBuilds extends Component {
                 {this.state.builds.map((build) => {
                     return ( 
                         <div>
-                            <h3>{build.name}</h3>
-                            <h3>{build.ad}</h3>
-                            <h3>{build.ap}</h3>
+                            <h3>{build.buildName}</h3>
+                            <h3>{build.buildAd}</h3>
+                            <h3>{build.buildAp}</h3>
                             <h3>{build.championId}</h3>
 
                             <Link to={`/build/${build._id}`}><button>View This Build</button> </Link>

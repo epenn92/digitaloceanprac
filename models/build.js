@@ -1,9 +1,9 @@
 const mongoose = require('./connection.js')
 
 const BuildSchema = new mongoose.Schema({
-    name: String,
-    ad: Number,
-    ap: Number,
+    buildName: String,
+    buildAd: Number,
+    buildAp: Number,
     championId: String
 
 })

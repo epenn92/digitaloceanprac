@@ -7,9 +7,9 @@ export default class SingleBuild extends Component {
     state = {
         builds: [],
         newBuild: {
-            name: '', 
-            ad: 0,
-            ap: 0,
+            buildName: '', 
+            buildAd: 0,
+            buildAp: 0,
             championId: ''
         }
     } 
@@ -38,9 +38,9 @@ export default class SingleBuild extends Component {
                     {this.state.redirect === true ? <Redirect to="/build" /> : null}
                     
                     <h1>Single Build</h1>
-                    <h3>{this.state.newBuild.name}</h3>
-                    <h3>{this.state.newBuild.ad}</h3>
-                    <h3>{this.state.newBuild.ap}</h3>
+                    <h3>{this.state.newBuild.buildName}</h3>
+                    <h3>{this.state.newBuild.buildAd}</h3>
+                    <h3>{this.state.newBuild.buildAp}</h3>
                     <button onClick={this.deleteBuild} value="DeleteBuild">Delete this Build</button>
                     <Link to={`/build`} ><button>Return to Builds</button></Link>
                 </div>

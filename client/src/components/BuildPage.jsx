@@ -8,9 +8,9 @@ export default class BuildPage extends Component {
         builds: [],
         items: [],
         newItem: {
-            name: '',
-            ad: 0,
-            ap: 0,
+            itemName: '',
+            itemAd: 0,
+            itemAp: 0,
             
         },
         newChampion: {
@@ -22,9 +22,9 @@ export default class BuildPage extends Component {
             image: ''
         },
         newBuild: {
-            name: '',
-            ad: 0,
-            ap: 0,
+            buildName: '',
+            buildAd: 0,
+            buildAp: 0,
             championId: '',
         }
     }
@@ -36,10 +36,10 @@ export default class BuildPage extends Component {
                     newChampion: res.data,
                     // newBuild: res.data
                     newBuild: {
-                        ad: res.data.ad,
-                        ap: res.data.ap,
+                        ad: res.data.buildAd,
+                        ap: res.data.buildAp,
                         championId: this.props.match.params.championId,
-                        name: res.data.name
+                        name: res.data.buildName
                     }
                 })
                 console.log(this.state.newBuild)
