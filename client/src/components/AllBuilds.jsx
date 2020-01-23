@@ -39,9 +39,9 @@ export default class AllBuilds extends Component {
                     return ( 
                         <div>
                             <h3>Build Name:{build.buildName}</h3>
-                            <h3>{build.buildAd}</h3>
-                            <h3>{build.buildAp}</h3>
-                            <h3>{build.championId}</h3>
+                            <h3>Build Attack Damage:{build.buildAd}</h3>
+                            <h3>Build Ability Power:{build.buildAp}</h3>
+                        
 
                             <Link to={`/build/${build._id}`}><button>View This Build</button> </Link>
                         </div>
