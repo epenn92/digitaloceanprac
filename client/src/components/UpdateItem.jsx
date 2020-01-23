@@ -7,12 +7,12 @@ export default class UpdateItem extends Component {
     state = {
     
         newItem: {
-            name: '',
-            description: '',
+            itemName: '',
+            itemDescription: '',
             isMelee: false,
             damageType: '',
-            ad: 0,
-            ap: 0
+            itemAd: 0,
+            itemAp: 0
         }
     }
 

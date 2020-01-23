@@ -23,10 +23,10 @@ export default class AllItems extends Component {
                     return (
                         <div>
                             <Link to={`/item/${item._id}`}>
-                            <h1>Name: {item.name}</h1> </Link>
-                            <h3>Description:{item.description}</h3>
-                            <h3>Base Attack Damage: {item.ad}</h3>
-                            <h3>Base Ability Power: {item.ap}</h3>
+                            <h1>Name: {item.itemName}</h1> </Link>
+                            <h3>Description:{item.itemDescription}</h3>
+                            <h3>Base Attack Damage: {item.itemAd}</h3>
+                            <h3>Base Ability Power: {item.itemAp}</h3>
                             {/* <h3>Melee?{item.isMelee}</h3>
                             <h3>Damage Type: {item.damageType}</h3>
                             */}

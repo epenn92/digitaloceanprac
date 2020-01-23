@@ -68,8 +68,8 @@ export default class BuildPage extends Component {
         // // console.log(typeof event.target.value)
         const items = this.state.items
         const selectedItem = items.find( items => items._id === itemId)
-        console.log(selectedItem.ad)
-        console.log(selectedItem.ap)
+        console.log(selectedItem.itemAd)
+        console.log(selectedItem.itemAp)
         console.log(this.state.newChampion.ad)
         this.setState({
             value: selectedItem
@@ -77,10 +77,10 @@ export default class BuildPage extends Component {
       
         const baseAd = parseInt(this.state.newChampion.ad)
         const baseAp = parseInt(this.state.newChampion.ap)
-        const currentAd = parseInt(this.state.newBuild.ad)
-        const currentAp = parseInt(this.state.newBuild.ap)
-        const itemAd = parseInt(selectedItem.ad)
-        const itemAp = parseInt(selectedItem.ap)
+        const currentAd = parseInt(this.state.newBuild.buildAd)
+        const currentAp = parseInt(this.state.newBuild.buildAp)
+        const itemAd = parseInt(selectedItem.itemAd)
+        const itemAp = parseInt(selectedItem.itemAp)
             let totalAd = 0
             let totalAp = 0
             totalAd = currentAd + itemAd
@@ -143,8 +143,8 @@ export default class BuildPage extends Component {
         this.setState({ 
             newBuild: {
                  
-                ad: totalAd,
-                ap: totalAp,
+                buildAd: totalAd,
+                buildAp: totalAp,
                 
             }
         })
@@ -181,8 +181,8 @@ export default class BuildPage extends Component {
                 <img src={`${this.state.newChampion.image}`} alt={`${this.state.newChampion.name}`} />
                  <div>
                     <h3>Your current stats</h3>
-                    <h3>Attack Damage:{this.state.newBuild.ad}</h3>
-                    <h3>Ability Power: {this.state.newBuild.ap}</h3>
+                    <h3>Attack Damage:{this.state.newBuild.buildAd}</h3>
+                    <h3>Ability Power: {this.state.newBuild.buildAp}</h3>
                     {/* {console.log(this.state.newBuild)} */}
                  </div>
                 <div>
@@ -198,7 +198,7 @@ export default class BuildPage extends Component {
                             // </>
                             <>
                                 <option id="op1" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                             </>
                         )
                     })}
@@ -214,7 +214,7 @@ export default class BuildPage extends Component {
                             // </>
                             <>
                                 <option id="op2" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                             </>
                         )
                     })}
@@ -230,7 +230,7 @@ export default class BuildPage extends Component {
                             // </>
                             <>
                                 <option id="op3" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                             </>
                         )
                     })}
@@ -242,7 +242,7 @@ export default class BuildPage extends Component {
                     {this.state.items.map((item) => {
                         return(
                                 <option id="op4" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                         )
                     })}
                     </select>
@@ -257,7 +257,7 @@ export default class BuildPage extends Component {
                             // </>
                             <>
                                 <option id="op5" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                             </>
                         )
                     })}
@@ -273,11 +273,14 @@ export default class BuildPage extends Component {
                             // </>
                             <>
                                 <option id="op6" value={item._id}>
-                                    {item.name}</option>
+                                    {item.itemName}</option>
                             </>
                         )
                     })}
                     </select>
+
+                    <h3>Name your build</h3>
+                    <input type="text" name="buildName" placeholder="Build Name" value={this.state.builds.buildName} onChange={this.onChange}></input>
 
                     <button type="submit" value="itemForm">Submit your Build</button>
                     </form>

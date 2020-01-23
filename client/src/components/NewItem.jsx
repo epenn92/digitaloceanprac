@@ -8,12 +8,12 @@ export default class NewItem extends Component {
     
         items: [], 
         newItem: {
-            name: '',
-            description: '',
+            itemName: '',
+            itemdescription: '',
             isMelee: false,
             damageType: '',
-            ad: 0,
-            ap: 0,
+            itemAd: 0,
+            itemAp: 0,
             unique: false
         }
     }
@@ -59,8 +59,8 @@ export default class NewItem extends Component {
                 <h1>Create a Item</h1>
             <br></br>
             <form onSubmit={this.onSubmitCreateForm}>
-            <input type="text" name="name" value={this.state.newItem.name} placeholder="Item Name" onChange={this.onChange} />
-            <input type='text' name='description' placeholder="Description" value= {this.state.newItem.description} onChange={this.onChange} />
+            <input type="text" name="itemName" value={this.state.newItem.itemName} placeholder="Item Name" onChange={this.onChange} />
+            <input type='text' name='itemDescription' placeholder="Description" value= {this.state.newItem.itemDescription} onChange={this.onChange} />
             <select name="isMelee" onChange={this.onChange}>
                 <option value={!this.state.newItem.isMelee} name="melee">Melee</option>
                 <option value={this.state.newItem.isMelee} name="ranged">Ranged</option>
@@ -69,8 +69,8 @@ export default class NewItem extends Component {
                 <option value={this.state.newItem.damageType}
             </select> */}
             <input type="text" name="damageType" value={this.state.newItem.damageType} placeholder="Phy, Mag, mixed Damage" onChange={this.onChange} />
-            <input type="number" name="ad" value={this.state.newItem.ad} placeholder="Base AD" onChange={this.onChange} />
-            <input type="number" name="ap" value={this.state.newItem.ap} placeholder="Base AP" onChange={this.onChange} />
+            <input type="number" name="itemAd" value={this.state.newItem.itemAd} placeholder="Base AD" onChange={this.onChange} />
+            <input type="number" name="itemAp" value={this.state.newItem.itemAp} placeholder="Base AP" onChange={this.onChange} />
             <button type="submit" value="CreateItem">Create Item</button>
             </form>
             </div>

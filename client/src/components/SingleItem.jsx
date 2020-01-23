@@ -7,12 +7,12 @@ export default class SingleItem extends Component {
     state = {
         items: [],
         newItem: {
-            name: '',
-            description: '',
+            itemName: '',
+            itemDescription: '',
             isMelee: false,
             damageType: '',
-            ad: 0,
-            ap: 0,
+            itemAd: 0,
+            itemAp: 0,
         }
     }
 
@@ -36,12 +36,12 @@ export default class SingleItem extends Component {
                 <div>
                 {this.state.redirect === true ? <Redirect to="/item" /> : null}
                 <h1>Your Item Stats</h1>
-                <h3>{this.state.newItem.name}</h3>
-                <h3>{this.state.newItem.description}</h3>
+                <h3>{this.state.newItem.itemName}</h3>
+                <h3>{this.state.newItem.itemDescription}</h3>
                 <h3>Melee?{this.state.newItem.isMelee}</h3>
                 <h3>DamageType:  {this.state.newItem.damageType}</h3>
-                <h3>Attack Damage:{this.state.newItem.ad}</h3>
-                <h3>Ability Power:{this.state.newItem.ap}</h3>
+                <h3>Attack Damage:{this.state.newItem.itemAd}</h3>
+                <h3>Ability Power:{this.state.newItem.itemAp}</h3>
                 </div>
 
                 <Link to={`/item/edit/${this.props.match.params.itemId}`} ><button>Edit this Item</button></Link>
