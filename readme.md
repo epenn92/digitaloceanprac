@@ -8,5 +8,6 @@ This app benefits the casual player practicing builds rather than following a re
 ### Trello Link
 (https://trello.com/b/aqE0pNyh/project-3 "Project 3 Trello Board")
 #### ERD
-
+![Project 3 ERD image](https://github.com/epenn92/Project-3/blob/master/images/project3ERD.png "ERD image ")
 #### Wireframes
+![Project 3 Wireframes](https://github.com/epenn92/Project-3/blob/master/images/project3Wireframe.png "Wireframe Image")
