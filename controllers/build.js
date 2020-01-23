@@ -30,6 +30,7 @@ buildRouter.post('/new', (req, res) => {
 //             res.json(build)
 //         })
 // })
+
 buildRouter.get('/:buildId', (req, res) => {
     buildApi.getBuild(req.params.buildId)
         .then((build) => {

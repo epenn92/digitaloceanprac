@@ -18,6 +18,7 @@ export default class AllBuilds extends Component {
                 // }, () => {
                 //     this.sortBuildsBy()
                 })
+                console.log(res.data)
             })
     }
 
@@ -37,7 +38,7 @@ export default class AllBuilds extends Component {
                 {this.state.builds.map((build) => {
                     return ( 
                         <div>
-                            <h3>{build.buildName}</h3>
+                            <h3>Build Name:{build.buildName}</h3>
                             <h3>{build.buildAd}</h3>
                             <h3>{build.buildAp}</h3>
                             <h3>{build.championId}</h3>

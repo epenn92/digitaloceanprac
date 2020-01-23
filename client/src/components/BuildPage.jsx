@@ -36,10 +36,10 @@ export default class BuildPage extends Component {
                     newChampion: res.data,
                     // newBuild: res.data
                     newBuild: {
-                        ad: res.data.buildAd,
-                        ap: res.data.buildAp,
+                        buildAd: res.data.ad,
+                        buildAp: res.data.ap,
                         championId: this.props.match.params.championId,
-                        name: res.data.buildName
+                        buildName: ''
                     }
                 })
                 console.log(this.state.newBuild)
@@ -59,7 +59,7 @@ export default class BuildPage extends Component {
         const field = event.target.name
 
         const newState = { ...this.state }
-        newState.newChampion[field] = value
+        newState.newBuild[field] = value
         this.setState(newState)
     }
 
@@ -68,9 +68,6 @@ export default class BuildPage extends Component {
         // // console.log(typeof event.target.value)
         const items = this.state.items
         const selectedItem = items.find( items => items._id === itemId)
-        console.log(selectedItem.itemAd)
-        console.log(selectedItem.itemAp)
-        console.log(this.state.newChampion.ad)
         this.setState({
             value: selectedItem
         })
@@ -142,13 +139,13 @@ export default class BuildPage extends Component {
 
         this.setState({ 
             newBuild: {
-                 
                 buildAd: totalAd,
                 buildAp: totalAp,
+                championId: this.props.match.params.championID
                 
             }
         })
-        // console.log(this.state.newBuild)
+        console.log(this.state.newBuild)
         // this.addToTotalStats()
       
 
@@ -280,7 +277,7 @@ export default class BuildPage extends Component {
                     </select>
 
                     <h3>Name your build</h3>
-                    <input type="text" name="buildName" placeholder="Build Name" value={this.state.builds.buildName} onChange={this.onChange}></input>
+                    <input type="text" name="buildName" placeholder="Build Name" value={this.state.newBuild.buildName} onChange={this.onChange}></input>
 
                     <button type="submit" value="itemForm">Submit your Build</button>
                     </form>
