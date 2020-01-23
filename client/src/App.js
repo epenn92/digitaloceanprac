@@ -13,6 +13,9 @@ import NewItem from './components/NewItem.jsx'
 import UpdateItem from './components/UpdateItem.jsx'
 import SingleItem from './components/SingleItem.jsx'
 import SingleBuild from './components/SingleBuild.jsx'
+import Rune from './components/Rune.jsx'
+import SingleRune from './components/SingleRune.jsx'
+import CreateRune from './components/CreateRune.jsx'
 
 class App extends Component {
   render() {
@@ -47,6 +50,9 @@ class App extends Component {
                 <Route exact path="/item/new" component={NewItem} />
                 <Route exact path="/item/edit/:itemId" component={UpdateItem} />
                 <Route exact path="/item/:itemId" component={SingleItem} />
+                <Route exact path="/rune" component={Rune} />
+                <Route exact path="/rune/new" component={CreateRune} />
+                <Route exact path="/rune/:runeId" component={SingleRune} />
               </Switch>
             </div>
           </Router>

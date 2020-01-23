@@ -27,6 +27,7 @@ export default class Champion extends Component {
                             <h1 className="championName">{champion.name}</h1> </Link>
                             <h3>{champion.description}</h3>
                             <img src={`${champion.image}`} alt={`${champion.name}`}></img>
+                            <h3>{champion.runeId}</h3>
                             {/* <h3>Melee?{champion.isMelee}</h3>
                             <h3>Damage Type: {champion.damageType}</h3>
                             <h3>Base Attack Damage: {champion.ad}</h3>

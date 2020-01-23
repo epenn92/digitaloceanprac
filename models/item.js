@@ -8,6 +8,7 @@ const ItemSchema = new mongoose.Schema({
     itemAd: Number,
     itemAp: Number,
     unique: Boolean,
+    championId: String,
 
 })
 
@@ -32,6 +33,7 @@ const updateItem = (itemId, newItem) => {
 const deleteItem = (itemId) => {
     return ItemCollection.deleteOne({ _id: itemId })
 }
+
 
 
 module.exports = {

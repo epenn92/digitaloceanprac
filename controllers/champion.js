@@ -3,6 +3,7 @@ const express = require('express')
 
 
 const championApi = require('../models/champion.js')
+const runeApi = require('../models/rune.js')
 
 const championRouter = express.Router()
 
@@ -18,6 +19,15 @@ championRouter.get('/:championId', (req, res) => {
   championApi.getChampion(req.params.championId)
     .then((champion) => {
       res.json(champion)
+    })
+})
+
+championRouter.get('/:championId', async (req, res) => {
+  const champion = await championApi.getChampionByRuneId(req.params.championId)
+  const rune = await runeApi.getRuneByChampionId(champion.runeId)
+
+    .then(() => {
+      res.json({ rune })
     })
 })
 
@@ -41,6 +51,7 @@ championRouter.delete('/:championId', (req, res) => {
       res.json({})
     })
 })
+
 
 
 module.exports = {

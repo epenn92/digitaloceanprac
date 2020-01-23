@@ -8,6 +8,7 @@ const ChampionSchema = new mongoose.Schema({
   ad: Number,
   ap: Number,
   image: String,
+  runeId: String,
 
 })
 
@@ -33,6 +34,9 @@ const deleteChampion = (championId) => {
   return ChampionCollection.deleteOne({ _id: championId })
 }
 
+const getChampionByRuneId = (runeId) => {
+  return ChampionCollection.findById(runeId)
+}
 
 
 
@@ -41,5 +45,6 @@ module.exports = {
   getChampion,
   addNewChampion,
   updateChampion,
-  deleteChampion
+  deleteChampion,
+  getChampionByRuneId,
 }

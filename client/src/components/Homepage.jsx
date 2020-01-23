@@ -24,6 +24,9 @@ export default class Homepage extends Component {
                 <div>
                     <Link to="/item/new"><button>Create an Item!</button></Link>
                 </div>
+                <div>
+                    <Link to="/rune/new"><button>Create a Rune!</button></Link>
+                </div>
             </div>
         )
     }

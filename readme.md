@@ -4,9 +4,10 @@ In League of Legends, your item build determines just about everything about you
 ## Audience: 
 This app benefits the casual player practicing builds rather than following a recommended list all the way up to pro players who know what numbers they need to kill a champion. Instead of having to do quick math let this app provide you with a source of truth regarding those stats.
 ### Heroku Link
-(https://limitless-reaches-52337.herokuapp.com/ "My League App")
+[My League App](https://limitless-reaches-52337.herokuapp.com/ )
 ### Trello Link
-(https://trello.com/b/aqE0pNyh/project-3 "Project 3 Trello Board")
+[Project 3 Trello Board](https://trello.com/b/aqE0pNyh/project-3)
 #### ERD
-
+![Project 3 ERD image](https://github.com/epenn92/Project-3/blob/master/images/project3ERD.png "ERD image ")
 #### Wireframes
+![Project 3 Wireframes](https://github.com/epenn92/Project-3/blob/master/images/project3Wireframe.png "Wireframe Image")

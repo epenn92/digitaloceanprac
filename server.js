@@ -19,6 +19,7 @@ const app = express()
 const { championRouter } = require('./controllers/champion.js')
 const { itemRouter } = require('./controllers/item.js')
 const { buildRouter } = require('./controllers/build.js')
+const { runeRouter } = require('./controllers/rune.js')
 
 
 /* Step 3
@@ -54,6 +55,7 @@ app.use(express.static(`${__dirname}/client/build`))
 app.use('/champion', championRouter)
 app.use('/item', itemRouter)
 app.use('/build', buildRouter)
+app.use('/rune', runeRouter)
 
 /* Step 5
  *
