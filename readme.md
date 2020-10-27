@@ -4,7 +4,7 @@ In League of Legends, your item build determines just about everything about you
 ## Audience: 
 This app benefits the casual player practicing builds rather than following a recommended list all the way up to pro players who know what numbers they need to kill a champion. Instead of having to do quick math let this app provide you with a source of truth regarding those stats.
 ### DigitalOcean Link
-[My DO League App](64.227.5.159)
+[My DO League App](http://64.227.5.159)
 ### Heroku Link
 [My League App](https://limitless-reaches-52337.herokuapp.com/ )
 ### Trello Link
